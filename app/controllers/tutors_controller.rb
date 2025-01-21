@@ -8,7 +8,7 @@ class TutorsController < ApplicationController
   end
 
   def new
-    @tutor = Tutor.new(tutor_params)
+    @tutor = Tutor.new
   end
 
   def create
@@ -23,6 +23,6 @@ class TutorsController < ApplicationController
   private
 
   def tutor_params
-    params.require(:tutor).permit(:first_name, :last_name, :email, :price, :qualification, :subject_id, :key_stage, :user_id)
+    params.require(:tutor).permit(:first_name, :last_name, :email, :price, :subject_id, :qualification, :key_stage, :user_id)
   end
 end
