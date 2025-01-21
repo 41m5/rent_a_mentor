@@ -1,0 +1,12 @@
+<h1> Join the Mentor Programme</h1>
+
+<%= simple_form_for @tutor do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :price %>
+  <%= f.input :qualification %>
+  <%= f.input :key_stage %>
+  <%= f.submit "Submit", class: "btn btn-primary"%>
+  <% end %>
