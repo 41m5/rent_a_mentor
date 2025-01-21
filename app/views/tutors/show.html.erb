@@ -11,3 +11,7 @@
   <p><%= "Subjects: #{@tutor.subject.name}" %></p>
 
 </div>
+
+ <%= link_to tutors_index_path, class: "btn btn-secondary" do %>
+      <i class="fa-solid fa-arrow-left"></i> Back to Tutors
+    <% end %>
