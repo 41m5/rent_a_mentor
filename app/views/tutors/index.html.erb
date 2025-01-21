@@ -4,6 +4,6 @@
 
 <div>
   <% @tutors.each do |tutor| %>
-    <%= link_to "#{tutor.first_name} #{tutor.last_name}", tutor_path(tutor), class: "tutor-link" %>
+    <%= link_to "#{tutor.user.first_name} #{tutor.user.last_name}", tutor_path(tutor), class: "tutor-link" %>
   <% end %>
 </div>
