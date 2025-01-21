@@ -1,2 +1,9 @@
-<h1>Tutors#index</h1>
-<p>Find me in app/views/tutors/index.html.erb</p>
+<div class="title">
+  <h1>Tutor List</h1>
+</div>
+
+<div>
+  <% @tutors.each do |tutor| %>
+    <%= link_to "#{tutor.first_name} #{tutor.last_name}", tutor_path(tutor), class: "tutor-link" %>
+  <% end %>
+</div>
