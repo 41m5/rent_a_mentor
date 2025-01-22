@@ -10,11 +10,7 @@ class TutorsController < ApplicationController
   end
 
   def new
-    @tutor = Tutor.new(
-      first_name: current_user.first_name,
-      last_name: current_user.last_name,
-      email: current_user.email
-    )
+    @tutor = Tutor.new
   end
 
   def create

@@ -1,9 +1,8 @@
-<h1> Join the Mentor Programme</h1>
+<h1>Become a tutor</h1>
 
-<p><%= "Hi #{user.first_name} #{user.last_name}" %></p>
+<p><%= "Hi #{current_user.first_name} #{current_user.last_name}" %></p>
 
 <%= simple_form_for @tutor do |f| %>
-  <%= f.input :user_id %>
   <%= f.input :price %>
   <%= f.input :qualification %>
   <%= f.input :key_stage %>
