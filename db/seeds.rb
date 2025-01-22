@@ -15,17 +15,17 @@ Favourite.destroy_all
 Booking.destroy_all
 Tutor.destroy_all
 User.destroy_all
-Subject.destroy_all
+# Subject.destroy_all
 
 # Create subjects
-puts "Creating subjects..."
-subjects = [
-  { name: 'Mathematics', level: 'Advanced' },
-  { name: 'Physics', level: 'Advanced' },
-  { name: 'Chemistry', level: 'Intermediate' },
-  { name: 'Biology', level: 'Intermediate' },
-  { name: 'English Literature', level: 'Advanced' }
-].map { |subject| Subject.create!(subject) }
+# puts "Creating subjects..."
+# subjects = [
+#   { name: 'Mathematics', level: 'Advanced' },
+#   { name: 'Physics', level: 'Advanced' },
+#   { name: 'Chemistry', level: 'Intermediate' },
+#   { name: 'Biology', level: 'Intermediate' },
+#   { name: 'English Literature', level: 'Advanced' }
+# ].map { |subject| Subject.create!(subject) }
 
 puts "Creating users..."
 users = [
@@ -52,7 +52,10 @@ puts "Creating tutors..."
 tutor_users = users.last(5) # Last 5 users will be tutors
 tutor_users.each_with_index do |user, index|
   Tutor.create!(
-    user_id: user.id,
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    user: user,
     price: 50 + (index * 10), # Unique price for each tutor
     # subject_id: subjects.sample.id, # Randomly assign a subject
     key_stage: ['KS3', 'KS4', 'A-Level'].sample,

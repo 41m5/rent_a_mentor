@@ -19,8 +19,7 @@ class TutorsController < ApplicationController
     @tutor.first_name = current_user.first_name
     @tutor.last_name = current_user.last_name
     @tutor.email = current_user.email
-    @tutor.subject
-      if @tutor.save!
+      if @tutor.save
         redirect_to tutors_path(@tutor), notice: "You have successfully signed up as a mentor."
       else
         render :new, status: :unprocessable_entity
