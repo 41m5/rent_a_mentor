@@ -65,34 +65,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_21_163301) do
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
-  create_table "subjects", force: :cascade do |t|
-    t.string "name"
-    t.string "level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tutor_subjects", force: :cascade do |t|
-    t.bigint "tutor_id", null: false
-    t.bigint "subject_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_tutor_subjects_on_subject_id"
-    t.index ["tutor_id"], name: "index_tutor_subjects_on_tutor_id"
-  end
-
   create_table "tutors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.float "price"
-    t.bigint "subject_id", null: false
     t.string "qualification"
     t.integer "key_stage"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_tutors_on_subject_id"
     t.index ["user_id"], name: "index_tutors_on_user_id"
   end
 
@@ -118,8 +100,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_21_163301) do
   add_foreign_key "bookings", "users"
   add_foreign_key "favourites", "tutors"
   add_foreign_key "favourites", "users"
-  add_foreign_key "tutor_subjects", "subjects"
-  add_foreign_key "tutor_subjects", "tutors"
-  add_foreign_key "tutors", "subjects"
   add_foreign_key "tutors", "users"
 end
