@@ -9,5 +9,5 @@ class Tutor < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
 
-  validates :first_name, :last_name, :email, :price, :qualification, :key_stage, presence: true
+  # validates :first_name, :last_name, :email, :price, :qualification, :key_stage, presence: true
 end

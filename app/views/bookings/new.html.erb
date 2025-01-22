@@ -1,0 +1,8 @@
+<h1>Book this tutor</h1>
+
+
+<%= simple_form_for [@tutor, @booking] do |f| %>
+  <%= f.input :day %>
+  <%= f.input :time %>
+  <%= f.submit "Submit", class: "btn btn-primary"%>
+  <% end %>
