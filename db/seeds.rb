@@ -54,7 +54,7 @@ tutor_users.each_with_index do |user, index|
   Tutor.create!(
     user_id: user.id,
     price: 50 + (index * 10), # Unique price for each tutor
-    subject_id: subjects.sample.id, # Randomly assign a subject
+    # subject_id: subjects.sample.id, # Randomly assign a subject
     key_stage: ['KS3', 'KS4', 'A-Level'].sample,
     qualification: ['Certified', 'Experienced', 'Expert'].sample
   )

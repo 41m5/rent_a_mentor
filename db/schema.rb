@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_21_163301) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_22_143410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,13 +86,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_21_163301) do
     t.string "last_name"
     t.string "email"
     t.float "price"
-    t.bigint "subject_id", null: false
     t.string "qualification"
     t.integer "key_stage"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_tutors_on_subject_id"
     t.index ["user_id"], name: "index_tutors_on_user_id"
   end
 
@@ -120,6 +118,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_21_163301) do
   add_foreign_key "favourites", "users"
   add_foreign_key "tutor_subjects", "subjects"
   add_foreign_key "tutor_subjects", "tutors"
-  add_foreign_key "tutors", "subjects"
   add_foreign_key "tutors", "users"
 end
