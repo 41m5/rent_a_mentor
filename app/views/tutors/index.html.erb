@@ -2,10 +2,6 @@
   <h1>Tutor List</h1>
 </div>
 
- <%= link_to new_tutor_path, class: "btn btn-secondary" do %>
-      <i class="fa-solid"></i> Join the Mentor Programme
-    <% end %>
-
 <div>
   <% @tutors.each do |tutor| %>
     <%= link_to "#{tutor.user.first_name} #{tutor.user.last_name}", tutor_path(tutor), class: "tutor-link" %>

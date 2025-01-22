@@ -20,7 +20,7 @@ class TutorsController < ApplicationController
     @tutor.last_name = current_user.last_name
     @tutor.email = current_user.email
       if @tutor.save
-        redirect_to tutors_path(@tutor), notice: "You have successfully signed up as a mentor."
+        redirect_to tutors_path(@tutor), notice: "You have successfully signed up as a tutor."
       else
         render :new, status: :unprocessable_entity
       end
