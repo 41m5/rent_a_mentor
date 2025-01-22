@@ -2,6 +2,7 @@
   background-color: white;
   height: 100px;
   padding: 15px;
+  gap: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,9 +17,10 @@
   }
 
   .nav-right {
-    padding: 0;
+    padding: 10;
     display: flex;
     float: right;
+    gap: 10px;
   }
 
 }

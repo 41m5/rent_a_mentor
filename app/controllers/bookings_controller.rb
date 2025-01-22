@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking = @tutor.bookings.create(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to tutor_path(@tutor)
+      redirect_to tutor_bookings_path(@tutor)
     else
       render :new, status: :unprocessable_entity
     end
