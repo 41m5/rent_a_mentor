@@ -1,0 +1,45 @@
+.tutor-profile {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  justify-content: left;
+
+  .tutor-name {
+    align-items: center;
+    display: inline-block;
+  }
+
+  .right-column {
+    gap: 20px;
+
+    .tutor-details {
+      background-color: $light-green;
+      padding: 20px;
+      border-radius: 20px;
+      flex: 2;
+      gap: 20px;
+    }
+
+    .tutor-reviews {
+      background-color: $light-green;
+      padding: 20px;
+      border-radius: 20px;
+      flex: 2;
+      gap: 20px;
+      margin-top: 20px;
+    }
+  }
+
+  h3 {
+    font-family: "funnel sans";
+    font-weight: 800;
+    color: $green;
+  }
+
+  p {
+    color: $green;
+    font-weight: 500;
+  }
+
+}
