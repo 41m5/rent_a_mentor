@@ -9,7 +9,7 @@
             <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" class="profile-img"/>
           </div>
           <div class="title">
-            <h3><%= link_to "#{tutor.user.first_name} #{tutor.user.last_name}", tutor_path(tutor), class: "tutor-link" %></h3>
+            <%= link_to "#{tutor.user.first_name} #{tutor.user.last_name}", tutor_path(tutor), class: "tutor-link" %>
           </div>
           <div class="card-details">
             <p><%= "#{tutor.qualification}" %></p>
@@ -17,7 +17,7 @@
             <p><%= "#{tutor.price}/ph" %></p>
           </div>
           <div class="rating">
-            <p>🍎</p>
+            <p>Rating: 🍎</p>
           </div>
         </div>
       </div>
