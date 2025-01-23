@@ -2,7 +2,11 @@
 @import "home";
 
 body {
-  background-color: $green;
+  background-color: $light-gray;
   padding-top: 0px;
   margin-top: 0px;
+}
+
+h1 {
+  color: $green;
 }
