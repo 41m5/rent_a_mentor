@@ -2,25 +2,26 @@
 @import "home";
 @import "footer";
 
-// body {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 100vh;
-//   margin: 0;
-//   padding-top: 0;
-//   background-color: $light-gray;
-// }
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding-top: 0;
+  background-color: $light-gray;
+}
 
-// main {
-//   flex: 1;
-// }
+main {
+  flex: 1;
+  min-height: 100vh;
 
-// footer {
-//   background-color: $green;
-//   color: white;
-//   padding: 10px;
-//   text-align: center;
-// }
+}
+
+footer {
+  background-color: $green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
 
 h1 {
   color: $green;
