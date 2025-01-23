@@ -1,9 +1,36 @@
-<h1>All my bookings</h1>
+<h1 class="text-center my-4">All My Bookings</h1>
 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Tutor Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Actions</th> <!-- Add an extra column for the action buttons -->
+          </tr>
+        </thead>
+        <tbody>
+          <% @bookings.where(user: current_user).each do |booking| %>
+            <tr>
+              <td><%= booking.tutor.first_name %> <%= booking.tutor.last_name %></td>
+              <td><%= booking.day.strftime('%B %d, %Y') %></td>
+              <td><%= booking.time.strftime('%I:%M %p') %></td>
+              <td>
+                <%= button_to booking_path(booking), method: :delete, class: "btn btn-danger" do %>
+                  <i class="fa-solid fa-trash"></i> Delete this Booking
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-
-<% @bookings.each do |booking| %>
-<%= p booking.day %>
-<br>
-<%= p booking.time %>
+<%= link_to tutors_index_path, class: "btn btn-secondary" do %>
+  <i class="fa-solid fa-arrow-left"></i> Back to Tutors
 <% end %>

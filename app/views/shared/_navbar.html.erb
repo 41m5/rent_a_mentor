@@ -3,10 +3,21 @@
     <%= image_tag "logo.svg", alt: "Rent-a-Mentor", class: "navbar-logo" %>
   <% end %>
   <div class="nav-right">
-     <%= link_to new_tutor_path, class: "btn btn-secondary" do %>
+    <%= link_to new_tutor_path, class: "btn btn-secondary" do %>
       <i class="fa-solid"></i> Become a tutor
     <% end %>
-     <%= link_to destroy_user_session_path, class: "btn btn-secondary" do %>
+
+    <% if current_user %>
+      <%= link_to tutor_bookings_path(tutor_id: current_user&.id), class: "btn btn-secondary" do %>
+        <i class="fa-solid"></i> Manage My Bookings
+      <% end %>
+    <% end %>
+
+
+
+
+
+     <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-secondary" do %>
       <i class="fa-solid"></i> Log out
     <% end %>
     <i class="fa-solid fa-user" style="color: #006838; font-size: 24px;"></i>
