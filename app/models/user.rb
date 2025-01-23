@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :tutors
   has_many :favourites
   has_many :tutors, through: :favourites
+
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
 end

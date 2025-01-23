@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :tutors, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:index, :show, :new, :create]
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:index, :destroy]
   resources :users, only: [:edit, :update]
 end
 

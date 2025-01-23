@@ -36,6 +36,6 @@ class TutorsController < ApplicationController
   private
 
   def tutor_params
-    params.require(:tutor).permit(:price, :qualification, :key_stage)
+    params.require(:tutor).permit(:price, :qualification, :key_stage, subject_ids: [])
   end
 end
