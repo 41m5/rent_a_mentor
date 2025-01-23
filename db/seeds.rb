@@ -121,22 +121,24 @@ user_data_list = [
 users = user_data_list.map { |user_data| User.create!(user_data) }
 
 puts "Creating tutors..."
-tutor_users = users.last(5)
+
+tutor_users = users.last(5)  # Select the last 5 users for creating tutors
 
 tutor_users.each_with_index do |user, index|
- tutor = Tutor.create!(
-   first_name: user.first_name,
-   last_name: user.last_name,
-   email: user.email,
-   user: user,
-   price: 50 + (index * 10),
-   key_stage: ['2', '3', '4'].sample,
-   qualification: ['Degree', 'Masters', 'PhD'].sample
- )
+  tutor = Tutor.create!(
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    user: user,
+    price: 50 + (index * 10),
+    key_stage: ['2', '3', '4'].sample,
+    qualification: ['Degree', 'Masters', 'PhD'].sample
+  )
 
- 2.upto(3) do |i|
-   tutor.subjects << subjects.sample
- end
+  # Assign 2-3 random subjects to each tutor
+  2.upto(3) do
+    tutor.subjects << subjects.sample
+  end
 end
 
 puts "Seeding complete! 10 users created, and 5 of them are tutors with assigned subjects."

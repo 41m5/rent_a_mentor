@@ -5,20 +5,27 @@
     <% @tutors.each do |tutor| %>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card-info">
+
           <div class="image">
+            <div class="verified">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
             <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" class="profile-img"/>
+            <div class="rating">
+              <p class="apple">🍎</p>
+            </div>
           </div>
+
           <div class="title">
             <%= link_to "#{tutor.user.first_name} #{tutor.user.last_name}", tutor_path(tutor), class: "tutor-link" %>
           </div>
+
           <div class="card-details">
-            <p><%= "#{tutor.qualification}" %></p>
-            <p><%= "#{tutor.key_stage}" %></p>
-            <p><%= "#{tutor.price}/ph" %></p>
+            <p class="tutor-details"><i class="info-logo fa-solid fa-user-graduate"></i><%= "Education level: #{tutor.qualification}" %></p>
+            <p class="tutor-details"><i class="info-logo fa-solid fa-key"></i><%= "Teaching level: #{tutor.key_stage}" %></p>
+            <p class="tutor-details"><i class="info-logo fa-solid fa-sterling-sign"></i><%= "#{tutor.price}/ph" %></p>
           </div>
-          <div class="rating">
-            <p>Rating: 🍎</p>
-          </div>
+
         </div>
       </div>
     <% end %>
