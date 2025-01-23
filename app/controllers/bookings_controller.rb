@@ -1,10 +1,15 @@
 class BookingsController < ApplicationController
   def index
-    if params[:tutor_id] # Nested under a specific tutor
-      @tutor = Tutor.find(params[:tutor_id])
-      @bookings = @tutor.bookings.where(user: current_user)
-    else # Top-level request to see all user bookings
-      @bookings = Booking.where(user: current_user)
+    if params[:tutor_id]
+      @tutor = Tutor.find_by(id: params[:tutor_id], user: current_user)
+      if @tutor
+        @bookings = @tutor.bookings
+      else
+        flash[:alert] = "Tutor not found"
+        redirect_to root_path
+      end
+    else
+      @bookings = current_user.bookings
     end
   end
 
