@@ -11,10 +11,14 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div id="app-container">
+      <%= render 'shared/navbar' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <main>
+        <%= yield %>
+      </main>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
