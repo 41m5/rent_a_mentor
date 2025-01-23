@@ -8,6 +8,12 @@
   <p><%= "Teaches Keystage: #{@tutor.key_stage}" %></p>
   <p><%= "Email: #{@tutor.email}" %></p>
   <p><%= "Price: #{@tutor.price}" %></p>
+  <p><b>Subjects:</b></p>
+  <ul>
+    <% @tutor.subjects.each do |subject| %>
+      <li><%= subject.name %></li>
+    <% end %>
+  </ul>
 
 </div>
 

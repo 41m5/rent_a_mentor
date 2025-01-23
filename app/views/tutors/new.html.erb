@@ -6,5 +6,6 @@
   <%= f.input :price %>
   <%= f.input :qualification %>
   <%= f.input :key_stage %>
-  <%= f.submit "Submit", class: "btn btn-primary"%>
-  <% end %>
+  <%= f.input :subjects, as: :check_boxes, collection: Subject.all %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

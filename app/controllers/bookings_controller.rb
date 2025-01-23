@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
-def index
-  if params[:tutor_id]
-    @bookings = Booking.where(tutor_id: params[:tutor_id], user: current_user)
-  else
-    @bookings = current_user.bookings
+  def index
+    if params[:tutor_id] # Nested under a specific tutor
+      @tutor = Tutor.find(params[:tutor_id])
+      @bookings = @tutor.bookings.where(user: current_user)
+    else # Top-level request to see all user bookings
+      @bookings = Booking.where(user: current_user)
+    end
   end
-end
 
 
   def show
@@ -19,10 +20,10 @@ end
 
   def create
     @tutor = Tutor.find(params[:tutor_id])
-    @booking = @tutor.bookings.create(booking_params)
+    @booking = @tutor.bookings.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to tutor_bookings_path(@tutor)
+      redirect_to bookings_path(@tutor), notice: "Booking created successfully."
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,8 +31,12 @@ end
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroy
-    redirect_to booking_path, status: :see_other
+    if @booking.user == current_user
+      @booking.destroy
+      redirect_to bookings_path, notice: "Booking was successfully deleted."
+    else
+      redirect_to bookings_path, alert: "You are not authorized to delete this booking."
+    end
   end
 
   private
