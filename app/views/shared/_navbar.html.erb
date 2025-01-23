@@ -6,7 +6,7 @@
   <div class="nav-right">
     <%= link_to "Become a tutor", new_tutor_path %>
 
-    <%= link_to "Manage my bookings", bookings_path(tutor_id: current_user&.id) %>
+    <%= link_to "Manage my bookings", bookings_path %>
 
      <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-secondary" do %>
       <i class="fa-solid"></i> Log out
