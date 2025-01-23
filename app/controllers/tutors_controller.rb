@@ -6,7 +6,7 @@ class TutorsController < ApplicationController
   end
 
   def show
-    @tutor = Tutor.find(params[:id])
+    @tutor = Tutor.includes(:subjects).find(params[:id])
   end
 
   def new
@@ -26,6 +26,9 @@ class TutorsController < ApplicationController
     @tutor.email = current_user.email
 
     if @tutor.save
+      params[:tutor][:subjects].reject(&:blank?).each do |subject_id|
+        TutorSubject.create(tutor: @tutor, subject_id: subject_id)
+      end
       redirect_to tutors_path(@tutor), notice: "You have successfully signed up as a tutor."
     else
       render :new, status: :unprocessable_entity
