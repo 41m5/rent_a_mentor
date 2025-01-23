@@ -1,23 +1,27 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "footer";
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 0;
   background-color: $light-gray;
-  padding-top: 0px;
-  margin-top: 0px;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: $green;
+  color: white;
+  padding: 10px;
+  text-align: center;
 }
 
 h1 {
   color: $green;
-}
-
-h3 {
-  font-family: "funnel sans";
-  font-weight: 800;
-  color: $green;
-}
-
-p {
-  color: $green;
-  font-weight: 500;
 }
