@@ -6,19 +6,29 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- CSS -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <!-- JS -->
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <div id="app-container">
+      <!-- Navbar -->
       <%= render 'shared/navbar' %>
+
+      <!-- Flash Messages -->
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+
+      <!-- Main Content -->
       <main>
         <%= yield %>
       </main>
-      <%# <%= render 'shared/footer' %>
+
+      <!-- Footer (Optional) -->
+      <%# <%= render 'shared/footer' %> %>
     </div>
   </body>
 </html>
