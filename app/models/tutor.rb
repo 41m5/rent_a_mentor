@@ -20,9 +20,9 @@ class Tutor < ApplicationRecord
 
   private
 
-  def cannot_book_self
-    if user == booking.user
-      errors.add(:base, "You cannot book a lesson with yourself")
-    end
-  end
+#   def cannot_book_self
+#     if user == booking.user
+#       errors.add(:base, "You cannot book a lesson with yourself")
+#     end
+#   end
 end
