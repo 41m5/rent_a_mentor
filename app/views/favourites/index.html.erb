@@ -1,44 +1,49 @@
-<div class="container">
-  <h1>Your Favorite Tutors</h1>
+<div class="booking-form">
+  <div class="booking-form-card">
 
-  <% if @favourites.any? %>
-    <table class="table table-striped mt-4">
-      <thead>
-        <tr>
-          <th>Tutor Name</th>
-          <th>Rating</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @favourites.each do |favourite| %>
-          <tr>
-            <td>
-              <%= link_to "#{favourite.tutor.first_name} #{favourite.tutor.last_name}", tutor_path(favourite.tutor) %>
-            </td>
-            <td>
-              <%= form_with model: favourite, url: favourite_path(favourite), method: :patch, local: true do |form| %>
-                <div class="d-flex align-items-center">
-                  <% 5.times do |i| %>
-                    <span class="apple <%= i < (favourite.rating || 0) ? 'filled' : 'empty' %>">🍎</span>
+    <div class="container">
+      <h1>Your favourite tutors</h1>
+
+      <% if @favourites.any? %>
+        <table class="table table-striped mt-4">
+          <thead>
+            <tr>
+              <th>Tutor Name</th>
+              <th>Rating</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @favourites.each do |favourite| %>
+              <tr>
+                <td>
+                  <%= link_to "#{favourite.tutor.first_name} #{favourite.tutor.last_name}", tutor_path(favourite.tutor) %>
+                </td>
+                <td>
+                  <%= form_with model: favourite, url: favourite_path(favourite), method: :patch, local: true do |form| %>
+                    <div class="d-flex align-items-center">
+                      <% 5.times do |i| %>
+                        <span class="apple <%= i < (favourite.rating || 0) ? 'filled' : 'empty' %>">🍎</span>
+                      <% end %>
+
+                      <%= form.number_field :rating, in: 0..5, step: 1, value: favourite.rating, class: "form-control mx-2 w-auto" %>
+                      <%= form.submit "Update Rating", class: "btn btn-info" %>
+                    </div>
                   <% end %>
-
-                  <%= form.number_field :rating, in: 0..5, step: 1, value: favourite.rating, class: "form-control mx-2 w-auto" %>
-                  <%= form.submit "Update Rating", class: "btn btn-info" %>
-                </div>
-              <% end %>
-            </td>
-            <td>
-              <%= button_to "Remove from favourites",
-                    favourite_path(favourite),
-                    method: :delete,
-                    class: "btn btn-warning" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <p>You have no favorite tutors yet.</p>
-  <% end %>
+                </td>
+                <td>
+                  <%= button_to "Remove",
+                        favourite_path(favourite),
+                        method: :delete,
+                        class: "btn btn-warning" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>You have no favorite tutors yet.</p>
+      <% end %>
+    </div>
+  </div>
 </div>

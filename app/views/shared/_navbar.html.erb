@@ -13,9 +13,8 @@
 
     <%= link_to "Favourites", favourites_path, class: "nav-link" %>
 
-    <%= link_to destroy_user_session_path, method: :delete, class: "nav-link"  do %>
-      Log out
-    <% end %>
+    <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-success" %>
+
   </div>
 </div>
 

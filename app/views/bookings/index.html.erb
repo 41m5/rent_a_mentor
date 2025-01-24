@@ -18,9 +18,9 @@
             <td><%= booking.day&.strftime('%B %d, %Y') %></td>
             <td><%= booking.time&.strftime('%I:%M %p') %></td>
             <td>
-              <%= link_to "Manage", edit_tutor_booking_path(booking.tutor, booking), class: "btn btn-warning btn-sm me-2" %>
-              <%= button_to booking_path(booking), method: :delete, class: "btn btn-danger btn-sm" do %>
-                <i class="fa-solid fa-trash"></i> Delete
+              <%= link_to "Manage", edit_tutor_booking_path(booking.tutor, booking), class: "btn btn-info" %>
+              <%= button_to booking_path(booking), method: :delete, class: "btn btn-warning" do %>
+              Delete
               <% end %>
             </td>
           </tr>
