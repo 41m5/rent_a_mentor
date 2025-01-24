@@ -7,30 +7,40 @@
         <div class="card-info">
 
           <div class="image">
-            <div class="verified">
-              <i class="fa-solid fa-circle-check"></i>
-            </div>
             <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" class="profile-img"/>
-            <div class="rating">
-              <% average = tutor.average_rating %>
-              <% average.to_i.times do %>
-                <span>🍎</span>
-              <% end %>
-              <% (5 - average.to_i).times do %>
-                <span style="opacity: 0.3;">🍎</span>
-              <% end %>
-              <p class="mt-1"><%= "#{average} / 5.0" %></p>
-            </div>
           </div>
 
-          <div class="title">
-            <%= link_to "#{tutor.user.first_name} #{tutor.user.last_name}", tutor_path(tutor), class: "tutor-link" %>
+          <div class="title-box">
+            <div class="verified">
+              <i class="verified-text fa-solid fa-circle-check"></i>
+            </div>
+            <div class="title">
+              <%= link_to "#{tutor.user.first_name} #{tutor.user.last_name}", tutor_path(tutor), class: "tutor-link" %>
+            </div>
           </div>
 
           <div class="card-details">
             <p class="tutor-details"><i class="info-logo fa-solid fa-user-graduate"></i><%= "Education level: #{tutor.qualification}" %></p>
             <p class="tutor-details"><i class="info-logo fa-solid fa-key"></i><%= "Teaching level: #{tutor.key_stage}" %></p>
             <p class="tutor-details"><i class="info-logo fa-solid fa-sterling-sign"></i><%= "#{tutor.price}/ph" %></p>
+          </div>
+
+          <div class="card-footer">
+            <div class="rating">
+              <div class="rating-number">
+                <p class="rating-text">Rating:</p>
+              </div>
+              <div class="apples">
+                <% average = tutor.average_rating %>
+                <% average.to_i.times do %>
+                  <span>🍎</span>
+                <% end %>
+                <% (5 - average.to_i).times do %>
+                  <span style="opacity: 0.3;">🍎</span>
+                <% end %>
+              </div>
+
+            </div>
           </div>
 
         </div>
