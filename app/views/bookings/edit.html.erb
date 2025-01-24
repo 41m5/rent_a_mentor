@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <h1>Edit Booking</h1>
+
+  <%= form_with model: [@booking.tutor, @booking], method: :patch, local: true do |form| %>
+    <div class="mb-3">
+      <%= form.label :day, "Booking Date" %>
+      <%= form.date_field :day, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :time, "Booking Time" %>
+      <%= form.time_field :time, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Save Changes", class: "btn btn-primary" %>
+    <%= link_to "Cancel", tutor_bookings_path(@booking.tutor), class: "btn btn-secondary" %>
+  <% end %>
+</div>
