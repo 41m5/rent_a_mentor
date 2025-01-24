@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+    @favourites = @user.favourites.includes(:tutor)
+  end
+
   private
 
   def user_params

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_23_124042) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_23_232814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_23_124042) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating", default: 0, null: false
     t.index ["tutor_id"], name: "index_favourites_on_tutor_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
@@ -113,6 +114,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_23_124042) do
   add_foreign_key "bookings", "users"
   add_foreign_key "favourites", "tutors"
   add_foreign_key "favourites", "users"
-  add_foreign_key "tutor_subjects", "tutors"
   add_foreign_key "tutors", "users"
 end

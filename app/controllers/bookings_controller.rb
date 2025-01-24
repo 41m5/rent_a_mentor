@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @bookings = current_user.bookings
   end
@@ -15,8 +17,14 @@ class BookingsController < ApplicationController
 
   def create
     @tutor = Tutor.find(params[:tutor_id])
+    if @tutor.user == current_user
+      redirect_to bookings_path, alert: "You cannot book yourself."
+      return
+    end
+
     @booking = @tutor.bookings.new(booking_params)
     @booking.user = current_user
+
     if @booking.save
       redirect_to bookings_path(@tutor), notice: "Booking created successfully."
     else

@@ -1,4 +1,4 @@
-// Graphical variables
+// Graphical variables (Configs for colors, fonts, etc.)
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -9,11 +9,23 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
 @import "components/tutor-profile";
 @import "components/booking-form";
-
-@import "components/index";
 @import "pages/index";
 @import "pages/navbar";
-@import "pages/footer"
+@import "pages/footer";
+
+// Other components
+.apple {
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 5px;
+
+  &.filled {
+    opacity: 1; /* Fully visible */
+  }
+
+  &.empty {
+    opacity: 0.3; /* Semi-transparent */
+  }
+}
