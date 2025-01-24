@@ -24,15 +24,15 @@
                   <% end %>
 
                   <%= form.number_field :rating, in: 0..5, step: 1, value: favourite.rating, class: "form-control mx-2 w-auto" %>
-                  <%= form.submit "Update Rating", class: "btn btn-primary btn-sm" %>
+                  <%= form.submit "Update Rating", class: "btn btn-info" %>
                 </div>
               <% end %>
             </td>
             <td>
-              <%= button_to "Remove from Favorites",
+              <%= button_to "Remove from favourites",
                     favourite_path(favourite),
                     method: :delete,
-                    class: "btn btn-danger btn-sm" %>
+                    class: "btn btn-warning" %>
             </td>
           </tr>
         <% end %>
