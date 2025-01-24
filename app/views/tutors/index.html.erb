@@ -12,7 +12,14 @@
             </div>
             <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" class="profile-img"/>
             <div class="rating">
-              <p class="apple">🍎</p>
+              <% average = tutor.average_rating %>
+              <% average.to_i.times do %>
+                <span>🍎</span>
+              <% end %>
+              <% (5 - average.to_i).times do %>
+                <span style="opacity: 0.3;">🍎</span>
+              <% end %>
+              <p class="mt-1"><%= "#{average} / 5.0" %></p>
             </div>
           </div>
 

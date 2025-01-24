@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="tutor-profile">
+        <div class="tutor-name">
+          <img class="rounded-circle shadow-4-strong" height="200px" alt="avatar2" src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0=" />
+          <h1><%= "#{@tutor.user.first_name} #{@tutor.user.last_name}" %></h1>
+        </div>
+        <div class="tutor-details">
+          <h3><%= "£#{@tutor.price} per hour" %></h3>
+          <p><%= "Highest Qualification Level: #{@tutor.qualification}" %></p>
+          <p><%= "Teaches Keystage: #{@tutor.key_stage}" %></p>
+          <p>Subjects Taught</p>
+          <% if @tutor.subjects.any? %>
+            <ul class="subjects-list">
+              <% @tutor.subjects.each do |subject| %>
+                <li><%= subject.name %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No subjects currently listed.</p>
+          <% end %>
+          <p><%= "Email: #{@tutor.email}" %></p>
+          <%= link_to new_tutor_booking_path(@tutor), class: "btn btn-secondary" do %>
+            Book this tutor
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Favorites and Ratings Section -->
+  <div class="favorites-section mt-4">
+    <div class="d-flex align-items-center">
+      <% if current_user.favourite_tutors.include?(@tutor) %>
+        <!-- Remove from Favorites Button -->
+        <%= button_to "Remove from Favorites",
+              favourite_path(current_user.favourites.find_by(tutor: @tutor)),
+              method: :delete,
+              class: "btn btn-danger me-3" %>
+
+        <!-- Rate the Tutor Form -->
+        <%= form_with model: current_user.favourites.find_by(tutor: @tutor),
+                      url: favourite_path(current_user.favourites.find_by(tutor: @tutor)),
+                      method: :patch, class: "d-inline-flex align-items-center" do |form| %>
+          <div class="d-flex align-items-center">
+            <% 5.times do |i| %>
+              <span class="apple <%= i < current_user.favourites.find_by(tutor: @tutor).rating ? 'filled' : 'empty' %>"></span>
+            <% end %>
+            <%= form.number_field :rating, in: 0..5, step: 1, class: "form-control mx-2 w-auto" %>
+            <%= form.submit "Submit Rating", class: "btn btn-primary btn-sm" %>
+          </div>
+        <% end %>
+      <% else %>
+        <!-- Add to Favorites Button -->
+        <%= button_to "Add to Favorites",
+              tutor_favourites_path(@tutor),
+              method: :post,
+              class: "btn btn-success me-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>

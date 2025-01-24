@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-6">
       <div class="tutor-profile">
+        <!-- Tutor Image and Name -->
         <div class="tutor-name">
           <img class="rounded-circle shadow-4-strong" height="200px" alt="avatar2" src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0=" />
           <h1><%= "#{@tutor.user.first_name} #{@tutor.user.last_name}" %></h1>
@@ -26,9 +27,46 @@
             <p><%= "Email: #{@tutor.email}" %></p>
             <%= link_to new_tutor_booking_path(@tutor), class: "btn btn-success" do %>
             Book this tutor
-            <% end %>
-          </div>
+          <% end %>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Favorites and Ratings Section -->
+  <div class="favorites-section mt-4">
+    <!-- Align Buttons and Rating Form Side-by-Side -->
+    <div class="d-flex align-items-center">
+      <% if current_user.favourite_tutors.include?(@tutor) %>
+        <!-- Remove from Favorites Button -->
+        <%= button_to "Remove from Favorites",
+              favourite_path(current_user.favourites.find_by(tutor: @tutor)),
+              method: :delete,
+              class: "btn btn-danger me-3" %>
+
+        <!-- Rate the Tutor Form -->
+        <%= form_tag favourite_path(current_user.favourites.find_by(tutor: @tutor)), method: :patch, class: "d-inline-flex align-items-center" do %>
+          <div class="form-group d-flex align-items-center">
+            <label for="rating" class="me-2">Rate:</label>
+            <%= number_field_tag "favourite[rating]", current_user.favourites.find_by(tutor: @tutor).rating, in: 0..5, step: 1, class: "form-control w-25 me-2" %>
+            <%= submit_tag "Submit Rating", class: "btn btn-primary btn-sm me-3" %>
+          </div>
+        <% end %>
+      <% else %>
+        <!-- Add to Favorites Button -->
+        <%= button_to "Add to Favorites",
+              tutor_favourites_path(@tutor),
+              method: :post,
+              class: "btn btn-success me-3" %>
+      <% end %>
+
+      <!-- Back to Tutors Button -->
+      <%= link_to "Back to Tutors", tutors_path, class: "btn btn-secondary" %>
+    </div>
+
+    <!-- Link to Favorites Page -->
+    <div class="mt-3">
+      <%= link_to "View My Favorites", favourites_path, class: "btn btn-info" %>
     </div>
   </div>
 </div>

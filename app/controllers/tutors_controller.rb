@@ -35,6 +35,16 @@ class TutorsController < ApplicationController
     end
   end
 
+  def update
+    @favourite = current_user.favourites.find(params[:id])
+
+    if @favourite.update(rating: params[:favourite][:rating])
+      redirect_to tutor_path(@favourite.tutor), notice: "Rating updated successfully."
+    else
+      redirect_to tutor_path(@favourite.tutor), alert: "Failed to update rating."
+    end
+  end
+
 
   private
 
