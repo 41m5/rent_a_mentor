@@ -1,8 +1,19 @@
-<h1>Welcome to Rent-a-Mentor</h1>
-<p>Find your ideal tutor to maximise your learning journey</p>
-<p>Sign up to book a tutor or become a tutor</p>
+<div class="home-page" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(<%= asset_path "apple-background.png" %>);">
 
-<div class="login-signup">
-  <%= link_to "Login", new_user_session_path, class: "btn btn-primary"%>
-  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary"%>
+
+  <div class="sign-up-box">
+    <div class="page-title">
+      <div class="title">
+        <h1>Welcome to Rent-a-Mentor</h1>
+      </div>
+      <div class="slogan">
+        <p>Find your ideal tutor to maximise your learning journey</p>
+      </div>
+    </div>
+
+    <div class="login-signup">
+      <%= link_to "Login", new_user_session_path, class: "btn btn-success"%>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success"%>
+    </div>
+  </div>
 </div>
