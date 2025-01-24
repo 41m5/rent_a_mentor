@@ -16,6 +16,11 @@
     text-decoration: none;
   }
 
+  a:hover {
+    color: $orange;
+    text-decoration: none;
+  }
+
   .nav-right {
     padding: 10;
     display: flex;

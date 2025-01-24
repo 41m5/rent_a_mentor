@@ -43,7 +43,7 @@ user_data_list = [
    email: "emma.thompson@example.com",
    password: "password123",
    ed_level: "Bachelor",
-   photo: "https://example.com/photos/emmathompson.jpg"
+   photo: "https://example.com/photos/1.jpg"
  },
  {
    first_name: "Jack",
@@ -51,7 +51,7 @@ user_data_list = [
    email: "jack.davies@example.com",
    password: "password123",
    ed_level: "High School",
-   photo: "https://example.com/photos/jackdavies.jpg"
+   photo: "https://example.com/photos/2.jpg"
  },
  {
    first_name: "Olivia",
@@ -59,7 +59,7 @@ user_data_list = [
    email: "olivia.brown@example.com",
    password: "password123",
    ed_level: "Master",
-   photo: "https://example.com/photos/oliviabrown.jpg"
+   photo: "https://i.ibb.co/P5qLTf2/woman4.png"
  },
  {
    first_name: "Harry",
@@ -67,7 +67,7 @@ user_data_list = [
    email: "harry.wilson@example.com",
    password: "password123",
    ed_level: "PhD",
-   photo: "https://example.com/photos/harrywilson.jpg"
+   photo: "https://example.com/photos/davidgreen.jpg"
  },
  {
    first_name: "Sophie",
@@ -75,7 +75,7 @@ user_data_list = [
    email: "sophie.moore@example.com",
    password: "password123",
    ed_level: "Bachelor",
-   photo: "https://example.com/photos/sophiemoore.jpg"
+   photo: "https://i.ibb.co/P5qLTf2/woman4.png"
  },
  {
    first_name: "Daniel",
@@ -83,7 +83,7 @@ user_data_list = [
    email: "daniel.taylor@example.com",
    password: "password123",
    ed_level: "High School",
-   photo: "https://example.com/photos/danieltaylor.jpg"
+   photo: "https://i.ibb.co/TbgMNRQ/man3.png"
  },
  {
    first_name: "Emily",
@@ -91,7 +91,7 @@ user_data_list = [
    email: "emily.clark@example.com",
    password: "password123",
    ed_level: "Master",
-   photo: "https://example.com/photos/emilyclark.jpg"
+   photo: "https://i.ibb.co/ZSGkmJp/woman1.png"
  },
  {
    first_name: "Michael",
@@ -99,7 +99,7 @@ user_data_list = [
    email: "michael.roberts@example.com",
    password: "password123",
    ed_level: "PhD",
-   photo: "https://example.com/photos/michaelroberts.jpg"
+   photo: "https://i.ibb.co/VHmZBYX/man1.png"
  },
  {
    first_name: "Jessica",
@@ -107,7 +107,7 @@ user_data_list = [
    email: "jessica.walker@example.com",
    password: "password123",
    ed_level: "Bachelor",
-   photo: "https://example.com/photos/jessicawalker.jpg"
+   photo: "https://i.ibb.co/JCHFwZd/woman3.png"
  },
  {
    first_name: "David",
@@ -115,7 +115,7 @@ user_data_list = [
    email: "david.green@example.com",
    password: "password123",
    ed_level: "High School",
-   photo: "https://example.com/photos/davidgreen.jpg"
+   photo: "https://i.ibb.co/hH3DJ3w/man2.png"
  }
 ]
 
