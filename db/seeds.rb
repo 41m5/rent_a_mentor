@@ -13,6 +13,7 @@
 puts "Clearing existing data..."
 Favourite.destroy_all
 Booking.destroy_all
+TutorSubject.destroy_all
 Tutor.destroy_all
 User.destroy_all
 Subject.destroy_all
