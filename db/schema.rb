@@ -114,5 +114,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_23_232814) do
   add_foreign_key "bookings", "users"
   add_foreign_key "favourites", "tutors"
   add_foreign_key "favourites", "users"
+  add_foreign_key "tutor_subjects", "tutors"
   add_foreign_key "tutors", "users"
 end

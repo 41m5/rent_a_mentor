@@ -1,22 +1,22 @@
 <div class="nav">
   <!-- Logo and Home Link -->
   <%= link_to root_path do %>
-    <%= image_tag "logo2.svg", alt: "Rent-a-Mentor", class: "navbar-logo" %>
+    <%= image_tag "logo-2.png", alt: "Rent-a-Mentor", class: "navbar-logo" %>
   <% end %>
 
   <div class="nav-right">
-    <%= link_to "View Tutors", tutors_path, class: "btn btn-primary me-2" %>
+    <%= link_to "View tutors", tutors_path, class: "btn btn-info" %>
 
-    <%= link_to "Become a Tutor", new_tutor_path, class: "nav-link" %>
+    <%= link_to "Become a tutor", new_tutor_path, class: "nav-link" %>
 
-    <%= link_to "Manage My Bookings", bookings_path, class: "nav-link" %>
+    <%= link_to "Manage my bookings", bookings_path, class: "nav-link" %>
 
-    <%= link_to "Favorites", favourites_path, class: "nav-link" %>
+    <%= link_to "Favourites", favourites_path, class: "nav-link" %>
 
-    <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-secondary" do %>
-      <i class="fa-solid"></i> Log out
+    <%= link_to destroy_user_session_path, method: :delete, class: "nav-link"  do %>
+      Log out
     <% end %>
-
-    <i class="fa-solid fa-user" style="color: #006838; font-size: 24px;"></i>
   </div>
 </div>
+
+    <%# <i class="fa-solid fa-user" style="color: #006838; font-size: 16px;"></i> %>

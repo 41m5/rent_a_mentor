@@ -1,11 +1,18 @@
-<h1>Become a tutor</h1>
+<div class="booking-form">
+  <div class="booking-form-card">
 
-<p><%= "Hi #{current_user.first_name} #{current_user.last_name}" %></p>
+    <h1>Become a tutor</h1>
 
-<%= simple_form_for @tutor do |f| %>
-  <%= f.input :price %>
-  <%= f.input :qualification %>
-  <%= f.input :key_stage %>
-  <%= f.input :subjects, as: :check_boxes, collection: Subject.all %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+    <p><%= "Hi #{current_user.first_name} #{current_user.last_name}" %></p>
+
+    <%= simple_form_for @tutor do |f| %>
+      <%= f.input :price, label: "What is your hourly rate?" %>
+      <%= f.input :qualification, label: "What is your highest qualification?" %>
+      <%= f.input :key_stage, label: "Which key stage do you teach?" %>
+      <%= f.input :subjects, as: :check_boxes, collection: Subject.all %>
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
