@@ -42,6 +42,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .verified{
@@ -55,8 +56,7 @@
   font-size: 25px;
   padding-left: 33px;
   font-size: 18px;
-  padding-bottom: 3px;
-  padding-right: 10px;
+  padding-top: 3px;
 }
 
 .tutor-link {
