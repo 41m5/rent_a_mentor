@@ -7,7 +7,7 @@ class Tutor < ApplicationRecord
   has_many :favourite_by, through: :favourites, source: :user
   has_many :bookings, dependent: :destroy
 
-  validates :first_name, :last_name, :email, :price, :qualification, :cannot_book_self, :key_stage, presence: true
+  validates :first_name, :last_name, :email, :price, :qualification, :key_stage, presence: true
 
   def full_name
     "#{first_name} #{last_name}".strip
@@ -20,9 +20,9 @@ class Tutor < ApplicationRecord
 
   private
 
-#   def cannot_book_self
-#     if user == booking.user
-#       errors.add(:base, "You cannot book a lesson with yourself")
-#     end
-#   end
+  def cannot_book_self
+    if user == booking.user
+      errors.add(:base, "You cannot book a lesson with yourself")
+    end
+  end
 end
